@@ -1,19 +1,12 @@
+/*
 #ifndef MAP_H
 #define MAP_H
+*/
+#pragma once
 
 #define MAX_LEVELS 5
 
-// Files struct
-struct F_levels {
-	std::string level[5];
-};
-
-// Player object container
-struct Player {
-	int row;
-	int col;
-	int treasure;
-};
+#define ERR_findFiles "[-] Error, need at least 5 files"
 
 // constants for tile status
 const char TILE_OPEN = '-';    // blank tile
@@ -42,4 +35,4 @@ const char MOVE_DOWN = 's';    // down movement
 const char MOVE_RIGHT = 'd';    // right movement
 
 
-#endif
+//#endif
