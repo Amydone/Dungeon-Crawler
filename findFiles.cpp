@@ -1,5 +1,5 @@
 #include "headers/logic.h"
-#include "DungeonCrawler/DungeonCrawler/map.h"
+#include "headers/map.h"
 
 F_levels* findFiles(void) {
 
