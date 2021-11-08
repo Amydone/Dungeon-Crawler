@@ -1,8 +1,6 @@
-/*
 #ifndef MAP_H
 #define MAP_H
-*/
-#pragma once
+
 
 #define MAX_LEVELS 5
 
@@ -35,4 +33,4 @@ const char MOVE_DOWN = 's';    // down movement
 const char MOVE_RIGHT = 'd';    // right movement
 
 
-//#endif
+#endif
