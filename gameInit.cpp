@@ -4,29 +4,42 @@
 
 int gameInitialize(void) {
 
-F_levels* P;
+F_levels* level;
 
-P = findFiles();
+void* map;
+
+level = findFiles();
     
-    if (P == nullptr)
+    if (level == nullptr)
     {
         std::cout << ERR_findFiles << std::endl;
 
-        std::this_thread::sleep_for(std::chrono::seconds(3));
-
         return 1;
-
     }
-    else
-/* For debug
-    for (unsigned short int i = 0; i < MAX_LEVELS; i++)
-    {
-            std::cout << "[+] Level loaded: " << P->level[i] << std::endl;
-    }
- */
     
-    std::this_thread::sleep_for(std::chrono::seconds(3));
+    map = loadLevel(level);
 
+        if (map == nullptr)
+        {
+            std::cout << ERR_loadMap << std::endl;
+
+            return 1;
+        }
+
+    //TODO game cycle
+    while (true)
+    {
+        /* Need get key press [wasd] and make delay approximately 1000ms between pressing 
+         * May be need create a function like a checkBounds(Player& player); and execute this from another thread
+         * And same with AI
+         *
+         */
+        getDirection();
+        
+        
+
+    }
+   
 return 0;
 
 }

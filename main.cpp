@@ -3,7 +3,7 @@
 int main(void) {
 
 
-   if(!gameInitialize()) // if !! == 0, if == 0
+   if(!gameInitialize()) 
    {
        return 0;
 

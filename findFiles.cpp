@@ -3,7 +3,6 @@
 
 F_levels* findFiles(void) {
 
-
 char level[] = "level1.txt";
 
 F_levels* PFiles = new F_levels;
@@ -36,21 +35,20 @@ while (FileCounter != MAX_LEVELS && PFiles != nullptr)
 
             }
             else
-            for (unsigned short int i = 0, j = 1; i <= MAX_LEVELS; i++, j++)
-            {
-                if (fileName.compare(pattern))
+                for (unsigned short int i = 0, j = 1; i <= MAX_LEVELS; i++, j++)
                 {
-                    level[5] = j + 0x30;
-                    pattern = level;
-                }
-                else
-                {
-                    PFiles->level[FileCounter] = pattern;
-                    FileCounter++;
+                    if (fileName.compare(pattern))
+                    {
+                        level[5] = j + 0x30; // ascii numbers starts from 0x30 offset
+                        pattern = level;
+                    }
+                    else
+                    {
+                        PFiles->level[FileCounter] = pattern;
+                        FileCounter++;
+                    }
 
                 }
-
-            }
 
         }
 
@@ -62,10 +60,8 @@ while (FileCounter != MAX_LEVELS && PFiles != nullptr)
         PFiles = nullptr;
     }
 
-
 }
 
-    
 return PFiles;
 
 }
