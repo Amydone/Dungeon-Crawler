@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <filesystem>
+#include <fstream>
 #include <thread>
 #include <chrono>
 
@@ -19,6 +20,11 @@ struct Player {
 	int treasure;
 };
 
+// XY coordinates of level
+struct coord {
+	unsigned short int x;
+	unsigned short int y;
+};
 /**
  * Initialize game and itself functions
  * @param none
@@ -33,21 +39,9 @@ int gameInitialize(void);
  * @param none
  * @return pointer to file
  */
-
 F_levels* findFiles(void);
 
 /**
- * Sort found files
- * @param *PFiles
- * @return pointer to sorted files *PFiles
- */
-
-F_levels* sortFiles(F_levels* files);
-
-// function signatures, do not change
-
-/**
- * TODO(student): write tests for this function
  * Load representation of the dungeon level from file into the 2D map.
  * Calls createMap to allocate the 2D array.
  * @param   fileName    File name of dungeon level.
@@ -58,10 +52,9 @@ F_levels* sortFiles(F_levels* files);
  * @update  maxRow, maxCol, player
  */
 //char** loadLevel(const std::string& fileName, int& maxRow, int& maxCol, Player& player);
-char** loadLevel(std::string& fileName);
+char** loadLevel(F_levels* levels);
 
 /**
- * TODO(student): write tests for this function
  * Translate the character direction input by the user into row or column change.
  * That is, updates the nextRow or nextCol according to the player's movement direction.
  * @param   input       Character input by the user which translates to a direction.
@@ -73,7 +66,6 @@ char** loadLevel(std::string& fileName);
 void getDirection(char input, int& nextRow, int& nextCol);
 
 /**
- * TODO(student): write tests for this function
  * Deallocates the 2D map array.
  * @param   map         Dungeon map.
  * @param   maxRow      Number of rows in the dungeon table (aka height).
@@ -83,7 +75,6 @@ void getDirection(char input, int& nextRow, int& nextCol);
 void deleteMap(char**& map, int& maxRow);
 
 /**
- * TODO(student): write tests for this function
  * Resize the 2D map by doubling both dimensions.
  * Copy the current map contents to the right, diagonal down, and below.
  * Do not duplicate the player, and remember to avoid memory leaks!
@@ -96,7 +87,6 @@ void deleteMap(char**& map, int& maxRow);
 char** resizeMap(char** map, int& maxRow, int& maxCol);
 
 /**
- * TODO(student): write tests for this function
  * Checks if the player can move in the specified direction and performs the move if so.
  * Cannot move out of bounds or onto TILE_PILLAR or TILE_MONSTER.
  * Cannot move onto TILE_EXIT without at least one treasure.
@@ -115,7 +105,6 @@ char** resizeMap(char** map, int& maxRow, int& maxCol);
 int doPlayerMove(char** map, int maxRow, int maxCol, Player& player, int nextRow, int nextCol);
 
 /**
- * TODO(student): write tests for this function
  * Update monster locations:
  * We check up, down, left, right from the current player position.
  * If we see an obstacle, there is no line of sight in that direction, and the monster does not move.

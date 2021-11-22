@@ -1,13 +1,16 @@
 #ifndef MAP_H
 #define MAP_H
 
-
 #define MAX_LEVELS 5
 
-#define ERR_findFiles "[-] Error, need at least 5 files"
+#define ERR_findFiles "[-] Error, need at least 5 files\nEnter an any key"
+
+#define ERR_loadMap "[-] Error loading file\nEnter an any key"
+
+#define MAX_SIZE_MAP 10
 
 // constants for tile status
-const char TILE_OPEN = '-';    // blank tile
+const char TILE_OPEN = '-';    // blank tile 
 const char TILE_PLAYER = 'o';    // tile for player's current location
 const char TILE_TREASURE = '$';    // tile for unpassable pillar location
 const char TILE_AMULET = '@';    // tile for hazard that enlarges the dungeon
